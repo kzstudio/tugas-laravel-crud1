@@ -1,5 +1,5 @@
 
-@extends('master')
+@extends('layout/master')
 
 @section('bradcumb-awal')
 <a href="#">Home</a>

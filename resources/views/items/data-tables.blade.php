@@ -1,5 +1,5 @@
 
-@extends('master')
+@extends('layout/master')
 
 @section('breadcumb-awal')
 <a href='#'>Data Tables</a>

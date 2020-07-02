@@ -12,10 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('items.home');
 });
 
 Route::get('/data-tables', function () {
-    return view('data-tables');
+    return view('items.data-tables');
 });
 
