@@ -162,6 +162,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{url('/pertanyaan')}}" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Pertanyaan
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
