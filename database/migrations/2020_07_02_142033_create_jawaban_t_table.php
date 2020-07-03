@@ -19,11 +19,15 @@ class CreateJawabanTTable extends Migration
             $table->dateTime('tanggal_dibuat');
             $table->dateTime('tanggal_diperbaharui')->nullable();
             $table->integer('userId')->nullable();
-            $table->integer('pertanyaanId');
+            $table->bigInteger('pertanyaanId')->unsigned(); 
             $table->integer('jumlah_like')->nullable();
             $table->integer('jumlah_dislike')->nullable();
             $table->boolean('resolved')->nullable();
             $table->integer('vote')->nullable();
+            $table->foreign('pertanyaanId')
+                  ->references('id')
+                  ->on('pertanyaan_t')
+                  ->onDelete('cascade');
         });
     }
 
