@@ -23,4 +23,16 @@ class PertanyaanModel{
 
 		return $new_items;
 	}
+
+	public static function ubah($id, $data){
+		$up_items = DB::table('pertanyaan_t')->where('id',$id)->update($data);
+
+		return $up_items;
+	}
+
+	public static function hapus($id){
+		$del_items = DB::table('pertanyaan_t')->where('id',$id)->delete();
+
+		return $del_items;
+	}
 }

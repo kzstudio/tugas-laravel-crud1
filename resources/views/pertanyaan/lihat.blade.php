@@ -6,8 +6,8 @@
 @endsection
 
 @section('content')
+judul, isi, tanggal_dibuat , tanggal_dibuat, tanggal_diperbaharui,
 
-<a href="{{url('/pertanyaan/create')}}" class='btn btn-primary'>Tambah</a><br><br>
 <table class="table table-bordered">
   <thead>                  
     <tr>
@@ -46,3 +46,4 @@
 </table>
 
 @endsection
+
