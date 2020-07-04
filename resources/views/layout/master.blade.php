@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('/adminlte/dist/css/adminlte.min.css')}}">
+   <link rel="stylesheet" href="{{asset('/adminlte/plugins/toastr/toastr.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -46,7 +47,7 @@
 <script src="{{asset('/adminlte/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('/adminlte/dist/js/demo.js')}}"></script>
-
+<script src="{{asset('/adminlte/plugins/toastr/toastr.min.js')}}"></script>
 @stack('scripts')
 </body>
 </html>

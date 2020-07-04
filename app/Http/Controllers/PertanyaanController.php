@@ -25,7 +25,7 @@ class PertanyaanController extends Controller
 
         $item = PertanyaanModel::save($data);
 
-         return redirect('/pertanyaan')->with('sukses',1);
+         return redirect('/pertanyaan');
         
     }
 
@@ -33,19 +33,20 @@ class PertanyaanController extends Controller
         $data = PertanyaanModel::get_by_pk($id);
         $jawab = JawabanModel::get_all_by_pertanyaan($id);
 
-        return view('pertanyaan.lihat',[compact($data,$jawab)]);
+        return view('pertanyaan.lihat',['data'=>$data,'jawab'=>$jawab]);
     }
 
     public function ubah($id){
         $data = PertanyaanModel::get_by_pk($id);
 
-        return view('pertanyaan.ubah'[compact($data)]);
+        return view('pertanyaan.ubah',['data'=>$data]);
     }
 
     public function storeUbah($id, Request $request){
         $data = $request->all();
         $data['tanggal_dibuat'] = date('Y-m-d H:i:s');
         unset($data['_token']);
+        unset($data['_method']);
 
         $item = PertanyaanModel::ubah($id, $data);
 

@@ -6,44 +6,67 @@
 @endsection
 
 @section('content')
-judul, isi, tanggal_dibuat , tanggal_dibuat, tanggal_diperbaharui,
+<div class="card card-primary card-outline">
+    <div class="card-header">
+      <h3 class="card-title">Detail Pertanyaan</h3>
+    </div> <!-- /.card-body -->
+    <div class="card-body">
+        <table>
+            <tr>
+                <th>Judul</th>
+                <td>:</td>
+                <td>{{$data->judul}}</td>
+            </tr>
+            <tr>
+                <th>Isi</th>
+                <td>:</td>
+                <td>{{$data->isi}}</td>
+            </tr>
+            <tr>
+                <th>Tanggal Dibuat</th>
+                <td>:</td>
+                <td>{{$data->tanggal_dibuat}}</td>
+            </tr>
+            <tr>
+                <th>Tanggal Diperbaharui</th>
+                <td>:</td>
+                <td>{{$data->tanggal_diperbaharui}}</td>
+            </tr>
+            <tr>
+                <th style="vertical-align:top;">
+                    Jawaban
+                </th>
+                <td>:</td>
+                <td>
+                      <?php 
+                            if ($jawab->count() > 0){ ?>
+                    <div class="timeline">
+                        <div class="time-label">
 
-<table class="table table-bordered">
-  <thead>                  
-    <tr>
-      <th style="width: 10px">No</th>
-      <th>Judul</th>
-      <th>Isi</th>
-      <th>Jawaban</th>
-      <th>Like</th>
-      <th>Dislike</th>
-      <th>Vote</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($data as $key => $val)
-    <tr>
-      <td>{{$key+1}}</td>
-      <td>{{$val->judul}}</td>
-      <td>{{$val->isi}}</td>
-      <td><a href="{{url('/jawaban/'.$val->id)}}" class="btn btn-danger">Jawab</a></td>
-      <td>{{$val->jumlah_like}}</td>
-      <td>{{$val->jumlah_dislike}}</td>
-      <td>{{$val->vote}}</td>
-      <td>
-        <a href='{{url("/pertanyaan/".$val->id."")}}' class="btn btn-info">Lihat</a>
-        <a href='{{url("/pertanyaan/".$val->id."/edit")}}' class="btn btn-primary">Ubah</a>
-        <form action="{{url('/pertanyaan/'.$val->id)}}" method="POST" style="display:inline;">
-          @csrf
-          @method("DELETE")
-          <button type="submit" value="hapus" class="btn btn-danger">Hapus</button>
-        </form>
-      </td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
+                            </div>
+                          
+                                @foreach($jawab as $key => $val)
+                                <!-- timeline item -->
+                                <div>
+                                    <i class="fas fa-envelope  bg-green"></i>
+                                    <div class="timeline-item">
+                                        <h3 class="timeline-header no-border">{{$val->isi}}</h3>
+                                    </div>
+                                </div>
+                                <!-- END timeline item -->
+                                @endforeach            
+                          
+                        </div>
+  <?php } ?>
+                </td>
+            </tr>
+        </table>
+        
+        <a href="{{url('/pertanyaan')}}" class='btn btn-danger'>Kembali</a>
+    </div>
+</div>
+
+
 
 @endsection
 
